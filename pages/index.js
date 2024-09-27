@@ -5,14 +5,16 @@ import Link from "next/link";
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
 
-export async function getServerSideProps(context) {
-  return {
-    redirect: {
-      destination: '/auth/login',
-      permanent: false,
-    },
-  }
-}
+
+// default redirection 
+// export async function getServerSideProps(context) {
+//   return {
+//     redirect: {
+//       destination: '/auth/login',
+//       permanent: false,
+//     },
+//   }
+// }
 export default function Index() {
   return (
     <>

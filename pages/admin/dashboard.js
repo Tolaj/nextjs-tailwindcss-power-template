@@ -13,7 +13,6 @@ import Admin from "layouts/Admin.js";
 export default function Dashboard() {
   return (
     <>
-    
     </>
   );
 }

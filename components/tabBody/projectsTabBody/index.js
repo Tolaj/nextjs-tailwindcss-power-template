@@ -10,7 +10,7 @@ import CreateProject from "./createProject";
 // layout for page
 
 
-export default function DashboardTabBody(props) {
+export default function ProjectsTabBody(props) {
    
     switch(props.dashboardTab){
         case 0 :return (
