@@ -12,31 +12,31 @@ import CreateProject from "./createProject";
 
 export default function DashboardTabBody(props) {
    
-    switch(props.dashboardTab){
+    switch(props._as.dashboardTab){
         case 0 :return (
             <>
     
   
 
-            <CreateProject reloadChild = {props.reloadChild}  setReloadChild ={props.setReloadChild} />
+            <CreateProject _as = {props._as} reloadChild = {props._as.reloadChild}  setReloadChild ={props._as.setReloadChild} />
                
             </>
           );
           case 1 :return (
             <>
     
-            <AdmissionEnquiry reloadChild = {props.reloadChild}  setReloadChild ={props.setReloadChild} />
+            <AdmissionEnquiry reloadChild = {props._as.reloadChild}  setReloadChild ={props._as.setReloadChild} />
                
             </>
           );
           case 2 :return (
             <>
     
-           <NewsLetters reloadChild = {props.reloadChild}  setReloadChild ={props.setReloadChild} />
+           <NewsLetters reloadChild = {props._as.reloadChild}  setReloadChild ={props._as.setReloadChild} />
                
             </>
           );
-        default: return(<>asd</>)
+        default: return(<>Default Tab Body</>)
     }
   
 }

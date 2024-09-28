@@ -20,8 +20,8 @@ export default function Modal(props) {
   });
 
   React.useEffect(()=>{
-    console.log("props.alumniData : ",props.alumniData)
-    props.alumniData ? setTempActivityData(props.alumniData) : null
+    console.log("props._as.alumniData : ",props._as.alumniData)
+    props._as.alumniData ? setTempActivityData(props._as.alumniData) : null
   },[])
 
   const handleChange = (e) => {
@@ -66,8 +66,8 @@ export default function Modal(props) {
       })
       .then((response) => {
         setPreLoader(0)
-        props.setAlumniData(null)
-        props.setModalToggle("")
+        props._as.setAlumniData(null)
+        props._as.setModalToggle("")
       })
       .catch((error) => {
         // Callback function for error
@@ -95,9 +95,9 @@ export default function Modal(props) {
     .then((rowData) => {
       console.log("update------------",rowData)
       setPreLoader(0)
-      props.setAlumniData(null)
-      props.setModalToggle("")
-      props.setReloadChild(Math.random())
+      props._as.setAlumniData(null)
+      props._as.setModalToggle("")
+      props._as.setReloadChild(Math.random())
     })
 }
 
@@ -111,7 +111,7 @@ export default function Modal(props) {
             {preLoader? <PageChange progress={uploadProgress} />:
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               {/*content*/}
-              <form action="#" onSubmit={(e) => {e.preventDefault(); props.alumniData ? handleUpdate() : handleSave()}}>
+              <form action="#" onSubmit={(e) => {e.preventDefault(); props._as.alumniData ? handleUpdate() : handleSave()}}>
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
@@ -173,7 +173,7 @@ export default function Modal(props) {
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => {props.setModalToggle("");props.setAlumniData(null)}}
+                    onClick={() => {props._as.setModalToggle("");props._as.setAlumniData(null)}}
                   >
                     Close
                   </button>
@@ -181,7 +181,7 @@ export default function Modal(props) {
                     className="bg-[#F0BD66] text-white active:bg-[#F0BD66] font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="submit"
                   >
-                    {props.alumniData ? "Update Changes" :"Save Changes"}
+                    {props._as.alumniData ? "Update Changes" :"Save Changes"}
                   </button>
                 </div>
               </div>

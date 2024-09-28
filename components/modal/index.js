@@ -8,22 +8,22 @@ import SettingModal from "./settingModal"
 
 export default function Modal(props) {
   const [showModal, setShowModal] = React.useState(true);
-  switch(props.modalToggle){
+  switch(props._as.modalToggle){
 
     case "/admin/alumniManagement" : 
-              if(props.alumniTab == 0){
-                return(<AlumniListModal alumniData = {props.alumniData} setAlumniData={props.setAlumniData} setModalToggle ={ props.setModalToggle} setReloadChild={props.setReloadChild} />);
-              } else if(props.alumniTab == 1) {
-                return(<AlumniActivitiesModal alumniData = {props.alumniData} setAlumniData={props.setAlumniData} setModalToggle ={ props.setModalToggle} setReloadChild={props.setReloadChild} />);
-              } else if(props.alumniTab == 2){
-                return(<AlumniAchievementsModal alumniData = {props.alumniData} setAlumniData={props.setAlumniData} setModalToggle ={ props.setModalToggle}  setReloadChild={props.setReloadChild}/>);
+              if(props._as.alumniTab == 0){
+                return(<AlumniListModal _as = {props._as} />);
+              } else if(props._as.alumniTab == 1) {
+                return(<AlumniActivitiesModal _as = {_as}  />);
+              } else if(props._as.alumniTab == 2){
+                return(<AlumniAchievementsModal _as = {_as} />);
               } else {
-                return(<AlumniGalleryModal setModalToggle ={ props.setModalToggle} setReloadChild={props.setReloadChild} />);
+                return(<AlumniGalleryModal _as = {_as} />);
               }
 
     case "/admin/settings" : 
-              if(props.settingsEdit == 1){
-                return(<SettingModal  setModalToggle ={ props.setModalToggle} setReloadChild={props.setReloadChild} />);
+              if(props._as.settingsEdit == 1){
+                return(<SettingModal  _as = {_as} />);
               } else{
                 return null
               }

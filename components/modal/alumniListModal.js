@@ -75,7 +75,7 @@ export default function Modal(props) {
   },[location])
 
   useEffect(()=>{
-    props.alumniData ? setTempProfileData(props.alumniData) : null
+    props._as.alumniData ? setTempProfileData(props._as.alumniData) : null
   },[])
 
   const handleChange = (e) => {
@@ -120,8 +120,8 @@ export default function Modal(props) {
       const res = await axios.post(alumniAddUrl, tempProfileData)
       .then((response) => {
         setPreLoader(0)
-        props.setAlumniData(null)
-        props.setModalToggle("")
+        props._as.setAlumniData(null)
+        props._as.setModalToggle("")
       })
       .catch((error) => {
         // Callback function for error
@@ -149,9 +149,9 @@ export default function Modal(props) {
     .then((rowData) => {
       console.log("update------------",rowData)
       setPreLoader(0)
-      props.setAlumniData(null)
-      props.setModalToggle("")
-      props.setReloadChild(Math.random())
+      props._as.setAlumniData(null)
+      props._as.setModalToggle("")
+      props._as.setReloadChild(Math.random())
     })
 }
 
@@ -165,7 +165,7 @@ export default function Modal(props) {
             {preLoader? <PageChange />:
             <div className="relative w-auto mx-auto max-w-4xl">
               {/*content*/}
-              <form action="#"  onSubmit={(e) => {e.preventDefault(); props.alumniData ? handleUpdate() : handleSave()}}>
+              <form action="#"  onSubmit={(e) => {e.preventDefault(); props._as.alumniData ? handleUpdate() : handleSave()}}>
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
@@ -277,8 +277,8 @@ export default function Modal(props) {
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => {
-                      props.setModalToggle("");
-                      props.setAlumniData(null)
+                      props._as.setModalToggle("");
+                      props._as.setAlumniData(null)
                       
 
                     }}
@@ -290,7 +290,7 @@ export default function Modal(props) {
                     type="submit"
                    
                   >
-                    {props.alumniData ? "Update Changes" :"Save Changes"}
+                    {props._as.alumniData ? "Update Changes" :"Save Changes"}
                   </button>
                 </div>
               </div>

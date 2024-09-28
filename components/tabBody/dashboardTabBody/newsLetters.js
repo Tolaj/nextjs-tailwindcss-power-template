@@ -90,18 +90,7 @@ export default function NewsLetters(props)  {
 
        // Example load data from server
        
-        useEffect(async () => {
-            !isUserSignedIn() ? router.push('/') : null
-            let token = localStorage.getItem('token')
-            await axios.get(`${process.env.SERVER_API}api/newsletter`,{
-                headers: {
-                  'Authorization': token
-                },
-              })
-            .then((rowData) => {
-            setRowData(rowData.data)
-            })
-        }, [props.reloadChild]);
+        
 
 
         const getRowStyle = params => {
